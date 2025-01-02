@@ -46,30 +46,25 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Custom settings
---
-vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
-vim.keymap.set('n', '<leader>w', vim.cmd.wq)
+vim.keymap.set('n', '<leader>e', vim.cmd.Ex, { desc = 'Opens the file explorer (netrw)' })
 
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
-vim.keymap.set('n', 'J', 'mzJ`z')
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Join lines and keep cursor position' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down and center' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up and center' })
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Search next and center' })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Search previous and center' })
 
---replace selected part with prev selected
-vim.keymap.set('x', '<leader>p', '"_dP')
-vim.keymap.set('n', '<leader>y', '"+y')
-vim.keymap.set('v', '<leader>y', '"+y')
-vim.keymap.set('n', '<leader>Y', '"+Y')
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Replace selection with clipboard without overwriting' })
+vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
+vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank selection to system clipboard' })
+vim.keymap.set('n', '<leader>Y', '"+Y', { desc = 'Yank line to system clipboard' })
 
-vim.keymap.set('n', '<leader>f', function()
-  vim.lsp.buf.format()
-end)
+vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'Format text using LSP' })
 
-vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
+vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace word under cursor globally with confirmation' })
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { desc = 'Make current file executable', silent = true })
 
 -- vim: ts=2 sts=2 sw=2 et
