@@ -1,9 +1,5 @@
 return {
   'tiagovla/tokyodark.nvim',
-  priority = 1000,
-  init = function()
-    vim.cmd.colorscheme 'tokyodark'
-  end,
   opts = {
     transparent_background = false, -- set background to transparent
     gamma = 0.9, -- adjust the brightness of the theme
