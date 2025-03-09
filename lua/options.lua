@@ -91,7 +91,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- Set the directory for storing undo history files
-vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+vim.opt.undodir = os.getenv 'XDG_CACHE_HOME' .. '/nvim/undodir'
 
 -- Disable search highlighting after a search is completed
 vim.opt.hlsearch = false
