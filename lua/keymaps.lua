@@ -64,7 +64,7 @@ vim.keymap.set('n', '<leader>Y', '"+Y', { desc = 'Yank line to system clipboard'
 
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'Format text using LSP' })
 
-vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace word under cursor globally with confirmation' })
+vim.keymap.set('n', '<leader>z', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace word under cursor globally with confirmation' })
 vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { desc = 'Make current file executable', silent = true })
 
 -- vim: ts=2 sts=2 sw=2 et
